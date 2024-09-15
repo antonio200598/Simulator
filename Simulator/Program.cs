@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Context>(options => options.UseMySql(
-    "server=localhost;initial catolog=Simulador; uid=root;pwd=34698016", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.33-mysql")));
+    "server=localhost;Database=Simulador;uid=root;pwd=34698016", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.33-mysql")));
 
 var app = builder.Build();
 
@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Users}/{action=Index}/{id?}");
 
 app.Run();
