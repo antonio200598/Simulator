@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simulator.Data;
+using Simulator.Platform.Entity;
 
 #nullable disable
 
@@ -44,6 +45,10 @@ namespace Simulator.Migrations
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("Password");
+
+                    b.Property<UserType>("Type")
+                        .HasColumnType("tinyint(5)")
+                        .HasColumnName("Type");
 
                     b.HasKey("Id");
 

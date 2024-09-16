@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Simulator.Platform.Entity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Simulator.Models
@@ -21,6 +22,10 @@ namespace Simulator.Models
         [Display(Name = "Email")]
         [Column("Email")] 
         public string Email { get; set; }
+
+        [Display(Name = "Tipo de Conta")]
+        [Column("Type")]
+        public UserType Type { get; set; }
 
         [Display(Name = "Data de Criação")]
         [Column("CreationDate")]

@@ -56,7 +56,7 @@ namespace Simulator.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Password,Email,CreationDate")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Name,Password,Email,Type,CreationDate")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace Simulator.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Password,Email,CreationDate")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Password,Email,Type,CreationDate")] User user)
         {
             if (id != user.Id)
             {
