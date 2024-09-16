@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Simulator.Platform
+namespace Simulator.Platform.Util
 {
     public static class EnumExtensions
     {
