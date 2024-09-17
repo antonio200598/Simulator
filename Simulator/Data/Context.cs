@@ -10,7 +10,5 @@ namespace Simulator.Data
         {}
 
         public DbSet<User> User { get; set; }
-
-
     }
 }

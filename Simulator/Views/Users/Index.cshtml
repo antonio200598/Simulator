@@ -1,6 +1,7 @@
 ﻿@using Simulator.Platform.Util;
 @model IEnumerable<Simulator.Models.User>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -59,4 +60,12 @@
 
 <p>
     <a asp-action="Create" type="button" class="btn btn-success">Add User</a>
+</p>
+
+<p>
+    <a asp-action="Queue" type="button" class="btn btn-info">View Queue</a>
+</p>
+
+<p>
+    <a asp-action="Stack" type="button" class="btn btn-info">View Stack</a>
 </p>

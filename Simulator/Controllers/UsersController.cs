@@ -52,8 +52,6 @@ namespace Simulator.Controllers
         }
 
         // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Password,Email,Type,CreationDate")] User user)
@@ -84,8 +82,6 @@ namespace Simulator.Controllers
         }
 
         // POST: Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Password,Email,Type,CreationDate")] User user)
@@ -158,6 +154,46 @@ namespace Simulator.Controllers
         private bool UserExists(int id)
         {
           return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        // GET: Users/Queue
+        [HttpGet, ActionName("Queue")]
+        public async Task<IActionResult> Queue()
+        {
+            return await GetUsersQueue();
+        }
+
+        public async Task<IActionResult> GetUsersQueue()
+        {
+            if (_context.User == null)
+            {
+                return NotFound();
+            }
+
+            var users = await _context.User.ToListAsync();
+            Queue<User> userQueue = new Queue<User>(users);
+
+            return View(userQueue);
+        }
+
+        // GET: Users/Stack
+        [HttpGet, ActionName("Stack")]
+        public async Task<IActionResult> Stack()
+        {
+            return await GetUsersStack();
+        }
+
+        public async Task<IActionResult> GetUsersStack()
+        {
+            if (_context.User == null)
+            {
+                return NotFound();
+            }
+
+            var users = await _context.User.ToListAsync();
+            Stack<User> userStack = new Stack<User>(users);
+
+            return View(userStack);
         }
     }
 }
